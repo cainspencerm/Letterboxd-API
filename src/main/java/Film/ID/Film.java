@@ -1,10 +1,15 @@
 package Film.ID;
 
+import Authentication.Auth;
 import Film.Genres.Genre;
 import Image.Image;
 import Link.Link;
+import Search.Item.Film.FilmSummary;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
 public class Film {
 
@@ -183,5 +188,10 @@ public class Film {
 
     public Link[] getLinks() {
         return links;
+    }
+
+    public static Film getFilm(String film) throws NoSuchAlgorithmException, InvalidKeyException {
+        FilmSummary filmSummary = Search.Search.getFilm(film);
+        return new Film(Auth.request("/film/" + filmSummary.getId(), null, "GET", null));
     }
 }

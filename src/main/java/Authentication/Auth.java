@@ -25,7 +25,7 @@ public class Auth {
 
         // Fully qualified url before signature.
         String uri = "https://api.letterboxd.com/api/v0" + path +
-                "?apikey=" + Passwords.CLIENT_KEY +
+                "?apikey=" + Passwords.LETTERBOXD_CLIENT_KEY +
                 "&nonce=" + uuid +
                 "&timestamp=" + secondsSinceEpoch +
                 "&Content-Type=application/x-www-form-urlencoded" +
@@ -37,7 +37,7 @@ public class Auth {
 
         String saltedString = method + "\u0000" + uri + "\u0000" + (body == null ? "" : body);
         Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
-        SecretKeySpec secretKey = new SecretKeySpec(Passwords.CLIENT_SECRET.getBytes(), "HmacSHA256");
+        SecretKeySpec secretKey = new SecretKeySpec(Passwords.LETTERBOXD_CLIENT_SECRET.getBytes(), "HmacSHA256");
         sha256_HMAC.init(secretKey);
 
         String signature = byteArrayToHex(sha256_HMAC.doFinal(saltedString.getBytes()));
