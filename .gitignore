@@ -5,3 +5,5 @@ target/
 /src/test/
 /src/main/java/Authentication/Passwords.java
 /src/main/resources/
+/src/main/java/META-INF/
+/out/
