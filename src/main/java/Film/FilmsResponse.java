@@ -1,4 +1,4 @@
-package Film.Films;
+package Film;
 
 import Search.Item.Film.FilmSummary;
 import org.json.JSONArray;

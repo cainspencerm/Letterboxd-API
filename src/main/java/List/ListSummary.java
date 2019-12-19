@@ -1,5 +1,7 @@
-package Search.Item.List;
+package List;
 
+import Search.Item.List.ListEntrySummary;
+import Search.Item.List.ListIdentifier;
 import Search.Item.Member.MemberSummary;
 import org.json.JSONArray;
 import org.json.JSONObject;

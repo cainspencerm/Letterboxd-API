@@ -1,4 +1,4 @@
-package Film.Films;
+package Film;
 
 public class FilmsRequest {
 }

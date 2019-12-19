@@ -8,7 +8,7 @@ import Search.Item.Contributor.ContributorSearchItem;
 import Search.Item.Film.FilmSearchItem;
 import Search.Item.Film.FilmSummary;
 import Search.Item.List.ListSearchItem;
-import Search.Item.List.ListSummary;
+import List.ListSummary;
 import Search.Item.Member.MemberSearchItem;
 import Search.Item.Member.MemberSummary;
 import Search.Item.Review.LogEntry;

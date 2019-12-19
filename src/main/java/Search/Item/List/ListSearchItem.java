@@ -1,5 +1,6 @@
 package Search.Item.List;
 
+import List.ListSummary;
 import org.json.JSONObject;
 
 public class ListSearchItem extends Search.Item.AbstractSearchItem<ListSearchItem> {
