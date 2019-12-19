@@ -10,7 +10,7 @@ import Search.Item.Tag.TagSearchItem;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-class SearchResponse {
+public class SearchResponse {
 
     // The list of search results.
     private AbstractSearchItem[] items;

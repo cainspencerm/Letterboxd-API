@@ -1,9 +1,10 @@
 package Search.Item.Contributor;
 
+import Contributor.ID.Contributor;
 import Search.Item.AbstractSearchItem;
 import org.json.JSONObject;
 
-public class ContributorSearchItem extends AbstractSearchItem {
+public class ContributorSearchItem extends AbstractSearchItem<ContributorSearchItem> {
 
     // Details of the contributor.
     private Contributor contributor;
@@ -17,8 +18,12 @@ public class ContributorSearchItem extends AbstractSearchItem {
         contributor = object.has("contributor") ? new Contributor(object.get("contributor").toString()) : null;
     }
 
-    @Override
-    public Contributor getItem() {
+    public Contributor getContributor() {
         return contributor;
+    }
+
+    @Override
+    public ContributorSearchItem getItem() {
+        return this;
     }
 }

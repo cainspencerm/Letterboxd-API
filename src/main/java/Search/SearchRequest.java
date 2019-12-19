@@ -1,6 +1,8 @@
 package Search;
 
-class SearchRequest {
+import Contributor.ID.Contributor.ContributionType;
+
+public class SearchRequest {
 
     public enum SearchMethod {
         FullText, Autocomplete
@@ -12,14 +14,6 @@ class SearchRequest {
         ReviewSearchItem, TagSearchItem
     }
 
-    public enum ContributionType {
-        Director, CoDirector, Actor,
-        Producer, Writer, Editor,
-        Cinematography, ArtDirection,
-        VisualEffects, Composer, Sound,
-        Costumes, MakeUp, Studio
-    }
-
     // private String cursor;
     private int perPage;
     private String input;
@@ -28,9 +22,9 @@ class SearchRequest {
     private ContributionType contributionType;
 
     public SearchRequest() {
-        perPage = 0;
+        perPage = 20;
         input = null;
-        searchMethod = null;
+        searchMethod = SearchMethod.Autocomplete;
         include = null;
         contributionType = null;
     }

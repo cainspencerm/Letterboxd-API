@@ -1,13 +1,11 @@
 package Search.Item.Member;
 
 import Image.Image;
+import Member.ID.Member.MemberStatus;
+import Member.Pronoun;
 import org.json.JSONObject;
 
 public class MemberSummary {
-
-    public enum MemberStatus {
-        Crew, Patron, Pro, Member
-    }
 
     // The LID of the member.
     private String id;

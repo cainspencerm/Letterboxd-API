@@ -2,7 +2,9 @@ package Search;
 
 import Authentication.Auth;
 import Search.Item.AbstractSearchItem;
-import Search.Item.Contributor.Contributor;
+import Contributor.ID.Contributor;
+import Contributor.ID.Contributor.ContributionType;
+import Search.Item.Contributor.ContributorSearchItem;
 import Search.Item.Film.FilmSearchItem;
 import Search.Item.Film.FilmSummary;
 import Search.Item.List.ListSearchItem;
@@ -21,7 +23,7 @@ public class Search {
         SearchRequest request = new SearchRequest();
         request.setInput(name);
         request.setInclude(SearchRequest.Include.ContributorSearchItem);
-        request.setContributionType(SearchRequest.ContributionType.Actor);
+        request.setContributionType(ContributionType.Actor);
 
         // Request json data.
         String json = null;
@@ -35,15 +37,15 @@ public class Search {
         SearchResponse response = new SearchResponse(json);
 
         // Find first actor.
-        Contributor actor = null;
+        ContributorSearchItem actor = null;
         for (int i = 0; i < response.getItems().length; i++) {
             if (response.getItems()[i] != null &&
                     response.getItems()[i].getType().equals(AbstractSearchItem.Type.ContributorSearchItem))
-                actor = (Contributor) response.getItems()[i].getItem();
+                actor = (ContributorSearchItem) response.getItems()[i].getItem();
         }
 
         if (actor != null)
-            return actor;
+            return actor.getContributor();
         else throw new NullPointerException();
     }
 
@@ -76,14 +78,6 @@ public class Search {
         if (filmSearchItem != null)
             return filmSearchItem.getFilm();
         else throw new NullPointerException();
-    }
-
-    public static String getFilmURL(FilmSummary film) {
-        return film.getLinks()[0].getUrl();
-    }
-
-    public static String getFilmURL(String film) {
-        return getFilm(film).getLinks()[0].getUrl();
     }
 
     public static ListSummary getList(String title) {

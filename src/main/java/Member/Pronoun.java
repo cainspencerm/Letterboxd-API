@@ -1,5 +1,6 @@
-package Search.Item.Member;
+package Member;
 
+import Member.ID.Member;
 import org.json.JSONObject;
 
 public class Pronoun {
