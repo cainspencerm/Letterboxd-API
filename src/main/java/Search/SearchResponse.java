@@ -1,12 +1,12 @@
 package Search;
 
 import Search.Item.AbstractSearchItem;
-import Search.Item.Contributor.ContributorSearchItem;
-import Search.Item.Film.FilmSearchItem;
-import Search.Item.List.ListSearchItem;
-import Search.Item.Member.MemberSearchItem;
-import Search.Item.Review.ReviewSearchItem;
-import Search.Item.Tag.TagSearchItem;
+import Search.Item.ContributorSearchItem;
+import Search.Item.FilmSearchItem;
+import Search.Item.ListSearchItem;
+import Search.Item.MemberSearchItem;
+import Search.Item.ReviewSearchItem;
+import Search.Item.TagSearchItem;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

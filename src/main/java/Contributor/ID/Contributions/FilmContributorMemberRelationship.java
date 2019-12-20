@@ -1,6 +1,6 @@
 package Contributor.ID.Contributions;
 
-import Search.Item.Member.MemberSummary;
+import Member.MemberSummary;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

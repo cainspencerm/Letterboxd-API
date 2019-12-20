@@ -4,7 +4,7 @@ import Authentication.Auth;
 import Film.Genres.Genre;
 import Image.Image;
 import Link.Link;
-import Search.Item.Film.FilmSummary;
+import Film.FilmSummary;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

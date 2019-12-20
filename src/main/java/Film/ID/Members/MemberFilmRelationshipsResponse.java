@@ -1,6 +1,6 @@
 package Film.ID.Members;
 
-import Search.Item.Film.MemberFilmRelationship;
+import Member.MemberFilmRelationship;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

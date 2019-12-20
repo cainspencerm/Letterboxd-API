@@ -1,35 +1,11 @@
 package Contributor.ID.Contributions;
 
-import Contributor.ID.Contributor.ContributionType;
-import Search.Item.Member.MemberSummary;
+import Contributor.ID.ContributionType;
 
 import java.util.HashSet;
 import java.util.Iterator;
 
 public class FilmContributionsRequest {
-
-    public enum FilmSort {
-        FilmName, ReleaseDateLatestFirst, ReleaseDateEarliestFirst,
-        AuthenticatedMemberRatingHighToLow, AuthenticatedMemberRatingLowToHigh,
-        MemberRatingHighToLow, MemberRatingLowToHigh, AverageRatingHighToLow,
-        AverageRatingLowToHigh, @Deprecated RatingHighToLow, @ Deprecated RatingLowToHigh,
-        FilmDurationShortestFirst, FilmDurationLongestFirst, FilmPopularity,
-        FilmPopularityThisWeek, FilmPopularityThisMonth, FilmPopularityThisYear
-    }
-
-    public enum Location {
-        Released, NotReleased, InWatchlist, NotInWatchlist, WatchedFromWatchlist,
-        Watched, NotWatched, FeatureLength, NotFeatureLength
-    }
-
-    public enum MemberRelationship {
-        Ignore, Watched, NotWatched, Liked, NotLiked, InWatchlist,
-        NotInWatchlist, Favorited
-    }
-
-    public enum IncludeFriends {
-        None, All, Only
-    }
 
     // The number of items to include per page (default is 20, maximum is 100).
     private int perPage;
@@ -38,12 +14,9 @@ public class FilmContributionsRequest {
     // which is an all-time measurement of the amount of activity the film has
     // received. The @FilmPopularityWithFriends values are only available to
     // signed-in members and consider popularity amongst the signed-in member’s
-    // friends.
-
-    // The @AuthenticatedMemberRating values are only available to signed-in members.
-
-    // The @MemberRating values must be used in conjunction with @member and are only
-    // available when specifying a single member (i.e. IncludeFriends=None).
+    // friends. The @AuthenticatedMemberRating values are only available to signed-in
+    // members. The @MemberRating values must be used in conjunction with @member and
+    // are only available when specifying a single member (i.e. IncludeFriends=None).
     private FilmSort sort;
 
     // Specify up to 100 Letterboxd IDs or TMDB IDs prefixed with tmdb:, or IMDB
@@ -250,7 +223,9 @@ public class FilmContributionsRequest {
             parameterSet.add("sort=" + sort);
 
         if (filmId != null)
-            parameterSet.add("filmId=" + filmId);
+            for (String s : filmId) {
+                parameterSet.add("filmId=" + s);
+            }
 
         if (type != null)
             parameterSet.add("type=" + type);

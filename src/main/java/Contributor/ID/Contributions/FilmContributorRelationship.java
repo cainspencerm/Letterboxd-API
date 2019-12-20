@@ -1,7 +1,6 @@
 package Contributor.ID.Contributions;
 
-import Contributor.ID.Contributor.ContributionType;
-import Film.ID.Me.FilmRelationship;
+import Contributor.ID.ContributionType;
 import org.json.JSONObject;
 
 public class FilmContributorRelationship {

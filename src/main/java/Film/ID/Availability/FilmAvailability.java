@@ -4,18 +4,6 @@ import org.json.JSONObject;
 
 public class FilmAvailability {
 
-    enum Country {
-        AIA, ARE, ARG, ARM, ATG, AUS, AUT, AZE, BEL, BFA, BGR, BHR, BHS, BLR,
-        BLZ, BMU, BOL, BRA, BRB, BRN, BWA, CAN, CHE, CHL, CHN, COL, CPV, CRI,
-        CYM, CYP, CZE, DEU, DMA, DNK, DOM, ECU, EGY, ESP, EST, FIN, FJI, FRA,
-        FSM, GBR, GHA, GMB, GNB, GRC, GRD, GTM, HKG, HND, HUN, IDN, IND, IRL,
-        ISR, ITA, JOR, JPN, KAZ, KEN, KGZ, KHM, KNA, KOR, LAO, LBN, LKA, LTU,
-        LUX, LVA, MAC, MDA, MEX, MLT, MNG, MOZ, MUS, MYS, NAM, NER, NGA, NIC,
-        NLD, NOR, NPL, NZL, OMN, PAN, PER, PHL, PNG, POL, PRT, PRY, QAT, ROU,
-        RUS, SAU, SGP, SLV, SVK, SVN, SWE, SWZ, THA, TJK, TKM, TTO, TUR, TWN,
-        UGA, UKR, USA, UZB, VEN, VGB, VNM, ZAF, ZWE
-    }
-
     // The name of the service.
     private String displayName;
 

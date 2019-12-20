@@ -1,6 +1,6 @@
 package Contributor.ID.Contributions;
 
-import Contributor.ID.Contributor.ContributionType;
+import Contributor.ID.ContributionType;
 import org.json.JSONObject;
 
 public class FilmContributorMetadata {

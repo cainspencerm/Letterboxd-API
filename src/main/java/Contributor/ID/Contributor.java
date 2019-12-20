@@ -5,22 +5,11 @@ import Contributor.ID.Contributions.FilmContribution;
 import Contributor.ID.Contributions.FilmContributionsRequest;
 import Contributor.ID.Contributions.FilmContributionsResponse;
 import Link.Link;
-import Member.ID.Member;
-import Search.Item.Contributor.ContributorStatistics;
+import Contributor.ContributorStatistics;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import javax.naming.directory.SearchResult;
-
 public class Contributor {
-
-    public enum ContributionType {
-        Director, CoDirector, Actor,
-        Producer, Writer, Editor,
-        Cinematography, ArtDirection,
-        VisualEffects, Composer, Sound,
-        Costumes, MakeUp, Studio
-    }
 
     // The LID of the contributor.
     private String id;

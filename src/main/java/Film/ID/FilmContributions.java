@@ -1,21 +1,14 @@
 package Film.ID;
 
-import Search.Item.Contributor.ContributorSummary;
+import Contributor.ContributorSummary;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import Contributor.ID.ContributionType;
 
 public class FilmContributions {
 
-    public enum Type {
-        Director, CoDirector, Actor,
-        Producer, Writer, Editor,
-        Cinematography, ArtDirection,
-        VisualEffects, Composer, Sound,
-        Costumes, MakeUp, Studio
-    }
-
     // The type of contribution.
-    private Type type;
+    private ContributionType type;
 
     // The list of contributors of the specified type for the film.
     private ContributorSummary[] contributors;
@@ -27,33 +20,33 @@ public class FilmContributions {
 
         // Define the type of contributor.
         if (object.has("type") && object.get("type").toString().equalsIgnoreCase("director")) {
-            type = Type.Director;
+            type = ContributionType.Director;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("codirector")) {
-            type = Type.CoDirector;
+            type = ContributionType.CoDirector;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("actor")) {
-            type = Type.Actor;
+            type = ContributionType.Actor;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("producer")) {
-            type = Type.Producer;
+            type = ContributionType.Producer;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("writer")) {
-            type = Type.Writer;
+            type = ContributionType.Writer;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("editor")) {
-            type = Type.Editor;
+            type = ContributionType.Editor;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("cinematography")) {
-            type = Type.Cinematography;
+            type = ContributionType.Cinematography;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("artdirection")) {
-            type = Type.ArtDirection;
+            type = ContributionType.ArtDirection;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("visualeffects")) {
-            type = Type.VisualEffects;
+            type = ContributionType.VisualEffects;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("composer")) {
-            type = Type.Composer;
+            type = ContributionType.Composer;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("sound")) {
-            type = Type.Sound;
+            type = ContributionType.Sound;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("costumes")) {
-            type = Type.Costumes;
+            type = ContributionType.Costumes;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("makeup")) {
-            type = Type.MakeUp;
+            type = ContributionType.MakeUp;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("studio")) {
-            type = Type.Studio;
+            type = ContributionType.Studio;
         } else {
             type = null;
         }
@@ -70,7 +63,7 @@ public class FilmContributions {
         }
     }
 
-    public Type getType() {
+    public ContributionType getType() {
         return type;
     }
 

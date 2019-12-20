@@ -1,7 +1,7 @@
 package Contributor.ID.Contributions;
 
-import Contributor.ID.Contributor.ContributionType;
-import Search.Item.Film.FilmSummary;
+import Contributor.ID.ContributionType;
+import Film.FilmSummary;
 import org.json.JSONObject;
 
 public class FilmContribution {

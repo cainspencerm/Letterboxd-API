@@ -1,20 +1,20 @@
 package Search;
 
 import Authentication.Auth;
-import Search.Item.AbstractSearchItem;
 import Contributor.ID.Contributor;
-import Contributor.ID.Contributor.ContributionType;
-import Search.Item.Contributor.ContributorSearchItem;
-import Search.Item.Film.FilmSearchItem;
-import Search.Item.Film.FilmSummary;
-import Search.Item.List.ListSearchItem;
+import Contributor.ID.ContributionType;
+import Search.Item.AbstractSearchItemType;
+import Search.Item.ContributorSearchItem;
+import Search.Item.FilmSearchItem;
+import Film.FilmSummary;
+import Search.Item.ListSearchItem;
 import List.ListSummary;
-import Search.Item.Member.MemberSearchItem;
-import Search.Item.Member.MemberSummary;
-import Search.Item.Review.LogEntry;
-import Search.Item.Review.ReviewSearchItem;
-import Search.Item.Tag.Tag;
-import Search.Item.Tag.TagSearchItem;
+import Search.Item.MemberSearchItem;
+import Member.MemberSummary;
+import LogEntry.LogEntry;
+import Search.Item.ReviewSearchItem;
+import Search.Item.Tag;
+import Search.Item.TagSearchItem;
 
 public class Search {
 
@@ -22,7 +22,7 @@ public class Search {
         // Create a search request.
         SearchRequest request = new SearchRequest();
         request.setInput(name);
-        request.setInclude(SearchRequest.Include.ContributorSearchItem);
+        request.setInclude(SearchResultType.ContributorSearchItem);
         request.setContributionType(ContributionType.Actor);
 
         // Request json data.
@@ -40,7 +40,7 @@ public class Search {
         ContributorSearchItem actor = null;
         for (int i = 0; i < response.getItems().length; i++) {
             if (response.getItems()[i] != null &&
-                    response.getItems()[i].getType().equals(AbstractSearchItem.Type.ContributorSearchItem))
+                    response.getItems()[i].getType().equals(AbstractSearchItemType.ContributorSearchItem))
                 actor = (ContributorSearchItem) response.getItems()[i].getItem();
         }
 
@@ -53,7 +53,7 @@ public class Search {
         // Create a search request.
         SearchRequest request = new SearchRequest();
         request.setInput(film);
-        request.setInclude(SearchRequest.Include.FilmSearchItem);
+        request.setInclude(SearchResultType.FilmSearchItem);
 
         // Request JSON data.
         String json = null;
@@ -69,7 +69,7 @@ public class Search {
         // Store the first search item (closest to search input).
         FilmSearchItem filmSearchItem = null;
         for (int i = 0; i < response.getItems().length; i++) {
-            if (response.getItems()[i] != null && response.getItems()[i].getType().equals(AbstractSearchItem.Type.FilmSearchItem)) {
+            if (response.getItems()[i] != null && response.getItems()[i].getType().equals(AbstractSearchItemType.FilmSearchItem)) {
                 filmSearchItem = (FilmSearchItem) response.getItems()[i].getItem();
                 break;
             }
@@ -84,7 +84,7 @@ public class Search {
         // Create a search request.
         SearchRequest request = new SearchRequest();
         request.setInput(title);
-        request.setInclude(SearchRequest.Include.ListSearchItem);
+        request.setInclude(SearchResultType.ListSearchItem);
 
         // Request JSON data.
         String json = null;
@@ -100,7 +100,7 @@ public class Search {
         // Store the first search item (closest to search input).
         ListSearchItem list = null;
         for (int i = 0; i < response.getItems().length; i++) {
-            if (response.getItems()[i] != null && response.getItems()[i].getType().equals(AbstractSearchItem.Type.ListSearchItem)) {
+            if (response.getItems()[i] != null && response.getItems()[i].getType().equals(AbstractSearchItemType.ListSearchItem)) {
                 list = (ListSearchItem) response.getItems()[i].getItem();
                 break;
             }
@@ -119,7 +119,7 @@ public class Search {
         // Create a search request.
         SearchRequest request = new SearchRequest();
         request.setInput(member);
-        request.setInclude(SearchRequest.Include.MemberSearchItem);
+        request.setInclude(SearchResultType.MemberSearchItem);
 
         // Request JSON data.
         String json = null;
@@ -134,7 +134,7 @@ public class Search {
 
         // Find first member.
         for (int i = 0; i < response.getItems().length; i++) {
-            if (response.getItems()[i].getType().equals(AbstractSearchItem.Type.MemberSearchItem)) {
+            if (response.getItems()[i].getType().equals(AbstractSearchItemType.MemberSearchItem)) {
                 MemberSearchItem item = (MemberSearchItem) response.getItems()[i];
                 return item.getMember();
             }
@@ -146,7 +146,7 @@ public class Search {
     public static LogEntry getReview(String review) {
         SearchRequest request = new SearchRequest();
         request.setInput(review);
-        request.setInclude(SearchRequest.Include.ReviewSearchItem);
+        request.setInclude(SearchResultType.ReviewSearchItem);
 
         // Request JSON data.
         String json = null;
@@ -161,7 +161,7 @@ public class Search {
 
         // Find first review.
         for (int i = 0; i < response.getItems().length; i++) {
-            if (response.getItems()[i].getType().equals(AbstractSearchItem.Type.ReviewSearchItem)) {
+            if (response.getItems()[i].getType().equals(AbstractSearchItemType.ReviewSearchItem)) {
                 ReviewSearchItem item = (ReviewSearchItem) response.getItems()[i];
                 return item.getReview();
             }
@@ -173,7 +173,7 @@ public class Search {
     public static Tag getTag(String tag) {
         SearchRequest request = new SearchRequest();
         request.setInput(tag);
-        request.setInclude(SearchRequest.Include.TagSearchItem);
+        request.setInclude(SearchResultType.TagSearchItem);
 
         // Request JSON data.
         String json = null;
@@ -193,7 +193,7 @@ public class Search {
                 continue;
             }
 
-            if (response.getItems()[i].getType().equals(AbstractSearchItem.Type.TagSearchItem)) {
+            if (response.getItems()[i].getType().equals(AbstractSearchItemType.TagSearchItem)) {
                 TagSearchItem item = (TagSearchItem) response.getItems()[i];
                 return item.getTag();
             }

@@ -1,24 +1,23 @@
 package Search;
 
-import Contributor.ID.Contributor.ContributionType;
+import Contributor.ID.ContributionType;
 
 public class SearchRequest {
 
-    public enum SearchMethod {
-        FullText, Autocomplete
-    }
-
-    public enum Include {
-        ContributorSearchItem, FilmSearchItem,
-        ListSearchItem, MemberSearchItem,
-        ReviewSearchItem, TagSearchItem
-    }
-
-    // private String cursor;
+    // The number of items to include per page (default is 20, maximum is 100).
     private int perPage;
+
+    // The word, partial word or phrase to search for.
     private String input;
+
+    // The type of search to perform. Defaults to @FullText, which preforms a standard search
+    // considering text in all fields. @Autocomplete only searches primary fields.
     private SearchMethod searchMethod;
-    private Include include;
+
+    // The types of results to search for. Default to all SearchResultTypes.
+    private SearchResultType include;
+
+    // The type of contributor to search for. Implies 'include=ContributorSearchItem'.
     private ContributionType contributionType;
 
     public SearchRequest() {
@@ -29,32 +28,12 @@ public class SearchRequest {
         contributionType = null;
     }
 
-    public SearchRequest(int perPage,
-                         String input,
-                         SearchMethod searchMethod,
-                         Include include,
-                         ContributionType contributionType) {
-        this.perPage = perPage;
-        this.input = input;
-        this.searchMethod = searchMethod;
-        this.include = include;
-        this.contributionType = contributionType;
-    }
-
     public int getPerPage() {
         return perPage;
     }
 
     public void setPerPage(int perPage) {
-
-        if (perPage <= 100 && perPage > 0) {
-            this.perPage = perPage;
-        } else if (perPage < 0) {
-            this.perPage = 20;
-        } else if (perPage > 100) {
-            this.perPage = 100;
-        }
-
+        this.perPage = perPage;
     }
 
     public String getInput() {
@@ -73,11 +52,11 @@ public class SearchRequest {
         this.searchMethod = searchMethod;
     }
 
-    public Include getInclude() {
+    public SearchResultType getInclude() {
         return include;
     }
 
-    public void setInclude(Include include) {
+    public void setInclude(SearchResultType include) {
         this.include = include;
     }
 
@@ -90,6 +69,7 @@ public class SearchRequest {
     }
 
     public String[] getParameters() {
+        // TODO Replace with new syntax using HashSet.
 
         // Count the number of parameters.
         int numParams = 0;

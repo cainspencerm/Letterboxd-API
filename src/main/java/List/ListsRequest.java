@@ -1,27 +1,12 @@
 package List;
 
-import Contributor.ID.Contributions.FilmContributionsRequest.IncludeFriends;
-import Contributor.ID.Contributions.FilmContributionsRequest.Location;
+import Contributor.ID.Contributions.IncludeFriends;
+import Contributor.ID.Contributions.Location;
 
 import java.util.HashSet;
 import java.util.Iterator;
 
 public class ListsRequest {
-
-    public enum ListSort {
-        Date, WhenPublishedLatestFirst, WhenPublishedEarliestFirst, WhenCreatedLatestFirst,
-        WhenCreatedEarliestFirst, ListName, ListPopularity, ListPopularityThisWeek, ListPopularityThisMonth,
-        ListPopularityThisYear, ListPopularityWithFriends, ListPopularityWithFriendsThisWeek,
-        ListPopularityWithFriendsThisMonth, ListPopularityWithFriendsThisYear
-    }
-
-    public enum MemberRelationship {
-        Owner, Liked
-    }
-
-    public enum Filter {
-        NoDuplicateMembers
-    }
 
     // The number of items to include per page (default is 20, maximum is 100).
     private int perPage;

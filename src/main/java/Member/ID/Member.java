@@ -3,16 +3,12 @@ package Member.ID;
 import Image.Image;
 import Link.Link;
 import Member.Pronoun;
-import Search.Item.Film.FilmSummary;
-import Search.Item.Review.LogEntry;
+import Film.FilmSummary;
+import LogEntry.LogEntry;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Member {
-
-    public enum MemberStatus {
-        Crew, Patron, Pro, Member
-    }
 
     // The LID of the member.
     private String id;

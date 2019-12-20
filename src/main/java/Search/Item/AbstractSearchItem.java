@@ -4,14 +4,8 @@ import org.json.JSONObject;
 
 public abstract class AbstractSearchItem<Generic> {
 
-    public enum Type {
-        ContributorSearchItem, FilmSearchItem,
-        ListSearchItem, MemberSearchItem,
-        ReviewSearchItem, TagSearchItem
-    }
-
     // The type of the search result.
-    private Type type;
+    private AbstractSearchItemType type;
 
     // A relevancy value that can be used to order results.
     private float score;
@@ -28,17 +22,17 @@ public abstract class AbstractSearchItem<Generic> {
 
         // Define the type of search item.
         if (object.has("type") && object.get("type").toString().equalsIgnoreCase("contributorsearchitem")) {
-            type = Type.ContributorSearchItem;
+            type = AbstractSearchItemType.ContributorSearchItem;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("filmsearchitem")) {
-            type = Type.FilmSearchItem;
+            type = AbstractSearchItemType.FilmSearchItem;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("listsearchitem")) {
-            type = Type.ListSearchItem;
+            type = AbstractSearchItemType.ListSearchItem;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("membersearchitem")) {
-            type = Type.MemberSearchItem;
+            type = AbstractSearchItemType.MemberSearchItem;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("reviewsearchitem")) {
-            type = Type.ReviewSearchItem;
+            type = AbstractSearchItemType.ReviewSearchItem;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("tagsearchitem")) {
-            type = Type.TagSearchItem;
+            type = AbstractSearchItemType.TagSearchItem;
         } else {
             type = null;
         }
@@ -47,7 +41,7 @@ public abstract class AbstractSearchItem<Generic> {
         score = object.has("score") ? object.getFloat("score") : 0.0f;
     }
 
-    public Type getType() {
+    public AbstractSearchItemType getType() {
         return type;
     }
 

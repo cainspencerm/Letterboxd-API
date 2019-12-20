@@ -3,13 +3,9 @@ package Link;
 import org.json.JSONObject;
 
 public class Link {
-    public enum Type {
-        LETTERBOXD, TMDB,
-        IMDB, GWI, JUSTWATCH
-    }
 
     // Denotes which site the link is for.
-    private Type type;
+    private LinkType type;
 
     // The object ID for the linked entity on the destination site.
     private String id;
@@ -24,15 +20,15 @@ public class Link {
 
         // Define member variables.
         if (object.has("type") && object.get("type").toString().equalsIgnoreCase("letterboxd")) {
-            type = Type.LETTERBOXD;
+            type = LinkType.LETTERBOXD;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("tmdb")) {
-            type = Type.TMDB;
+            type = LinkType.TMDB;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("imdb")) {
-            type = Type.IMDB;
+            type = LinkType.IMDB;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("gwi")) {
-            type = Type.GWI;
+            type = LinkType.GWI;
         } else if (object.has("type") && object.get("type").toString().equalsIgnoreCase("justwatch")) {
-            type = Type.JUSTWATCH;
+            type = LinkType.JUSTWATCH;
         } else {
             type = null;
         }
@@ -41,7 +37,7 @@ public class Link {
         url = object.has("url") ? object.getString("url") : null;
     }
 
-    public Type getType() {
+    public LinkType getType() {
         return type;
     }
 
