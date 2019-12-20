@@ -1,4 +1,4 @@
-package Contributor.ID.Contributions;
+package Member;
 
 public enum MemberRelationship {
     Ignore, Watched, NotWatched, Liked, NotLiked, InWatchlist,

@@ -1,9 +1,9 @@
 package List.ID.Entries;
 
 import Contributor.ID.Contributions.IncludeFriends;
-import Contributor.ID.Contributions.Location;
+import Contributor.ID.Contributions.Accessibility;
 import List.ListSort;
-import List.MemberRelationship;
+import List.ListMemberRelationship;
 
 // TODO Check 'must be used in conjunction with' cases.
 
@@ -38,7 +38,7 @@ public class ListEntriesRequest {
     private String service;
 
     // Specify one or more values to limit the list of films accordingly.
-    private Location[] where;
+    private Accessibility[] where;
 
     // Specify the LID of a member to limit the returned films according to the value set in
     // @memberRelationship or to access the @MemberRatingHighToLow and @MemberRatingLowToHigh
@@ -49,7 +49,7 @@ public class ListEntriesRequest {
     // relationship to limit the returned films accordingly. Use @Ignore if you only intend
     // to specify the member for use with 'sort=MemberRatingHighToLow' or
     // 'sort=MemberRatingLowToHigh'.
-    private MemberRelationship memberRelationShip;
+    private ListMemberRelationship memberRelationShip;
 
     // Must be used in conjunction with member. Defaults to @None, which only returns films
     // from the member's account. Use @Only to return films from the member's friends, and
@@ -141,11 +141,11 @@ public class ListEntriesRequest {
         this.service = service;
     }
 
-    public Location[] getWhere() {
+    public Accessibility[] getWhere() {
         return where;
     }
 
-    public void setWhere(Location[] where) {
+    public void setWhere(Accessibility[] where) {
         this.where = where;
     }
 
@@ -157,11 +157,11 @@ public class ListEntriesRequest {
         this.member = member;
     }
 
-    public MemberRelationship getMemberRelationShip() {
+    public ListMemberRelationship getMemberRelationShip() {
         return memberRelationShip;
     }
 
-    public void setMemberRelationShip(MemberRelationship memberRelationShip) {
+    public void setMemberRelationShip(ListMemberRelationship memberRelationShip) {
         this.memberRelationShip = memberRelationShip;
     }
 

@@ -1,6 +1,8 @@
 package Contributor.ID.Contributions;
 
 import Contributor.ID.ContributionType;
+import Film.FilmSort;
+import Member.MemberRelationship;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -43,7 +45,7 @@ public class FilmContributionsRequest {
 
     // Specify one or more values to limit the list of films accordingly. Example:
     // 'where=Watched&where=Released'.
-    private Location where;
+    private Accessibility where;
 
     // Specify the LID of a member to limit the returned films according to the
     // value set in @memberRelationship or to access the @MemberRatingHighToLow and
@@ -156,11 +158,11 @@ public class FilmContributionsRequest {
         this.service = service;
     }
 
-    public Location getWhere() {
+    public Accessibility getWhere() {
         return where;
     }
 
-    public void setWhere(Location where) {
+    public void setWhere(Accessibility where) {
         this.where = where;
     }
 

@@ -2,6 +2,9 @@ package Search;
 
 import Contributor.ID.ContributionType;
 
+import java.util.HashSet;
+import java.util.Iterator;
+
 public class SearchRequest {
 
     // The number of items to include per page (default is 20, maximum is 100).
@@ -69,53 +72,30 @@ public class SearchRequest {
     }
 
     public String[] getParameters() {
-        // TODO Replace with new syntax using HashSet.
+        HashSet<String> parameters = new HashSet<>();
 
-        // Count the number of parameters.
-        int numParams = 0;
-        if (perPage != 0) numParams++;
-        if (input != null) numParams++;
-        if (searchMethod != null) numParams++;
-        if (include != null) numParams++;
-        if (contributionType != null) numParams++;
+        if (perPage != 0)
+            parameters.add("perPage=" + perPage);
+
+        if (input != null)
+            parameters.add("input=" + input);
+
+        if (searchMethod != null)
+            parameters.add("searchMethod=" + searchMethod);
+
+        if (include != null)
+            parameters.add("include=" + include);
+
+        if (contributionType != null)
+            parameters.add("contributionType=" + contributionType);
 
         // Fill an array with all applicable parameters.
-        String[] parameters = new String[numParams];
-        int i = 0;
-        if (perPage != 0) {
-            parameters[i] = "perPage=" + perPage;
-            i++;
+        Iterator<String> iterator = parameters.iterator();
+        String[] result = new String[parameters.size()];
+        for (int i = 0; i < parameters.size(); i++) {
+            result[i] = iterator.next();
         }
 
-        if (input != null) {
-            // Ensure the search is alphanumeric with dashed (-) spaces.
-            StringBuilder temp = new StringBuilder();
-            for (int j = 0; j < input.length(); j++) {
-                if (Character.isAlphabetic(input.charAt(j)) || Character.isDigit(input.charAt(j))) {
-                    temp.append(input.charAt(j));
-                } else if (input.charAt(j) == ' ') {
-                    temp.append('-');
-                }
-            }
-
-            parameters[i] = "input=" + temp;
-            i++;
-        }
-
-        if (searchMethod != null) {
-            parameters[i] = "searchMethod=" + searchMethod;
-            i++;
-        }
-
-        if (include != null) {
-            parameters[i] = "include=" + include;
-            i++;
-        }
-
-        if (contributionType != null) {
-            parameters[i] = "contributionType=" +contributionType;
-        }
-
-        return parameters;
+        return result;
     }
 }

@@ -1,7 +1,7 @@
 package List;
 
 import Contributor.ID.Contributions.IncludeFriends;
-import Contributor.ID.Contributions.Location;
+import Contributor.ID.Contributions.Accessibility;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -39,7 +39,7 @@ public class ListsRequest {
 
     // Must be used in conjunction with @member. Defaults to @Owner, which returns lists owned by the
     // specified member. Use @Liked to return lists liked by the member.
-    private MemberRelationship memberRelationship;
+    private ListMemberRelationship memberRelationship;
 
     // Must be used in conjunction with @member. Defaults to @None, which only returns lists from the
     // member's account. Use @Only to return lists from the member's friends, and @All to return lists
@@ -50,7 +50,7 @@ public class ListsRequest {
     // the member's lists that have been made public. Note that unpublished lists for members other than
     // the authenticated member are never returned. Specify @NotPublished to return the authenticated
     // member's lists that have not been made public.
-    private Location where;
+    private Accessibility where;
 
     // Specify @NoDuplicateMembers to limit the list to only the first list for each member.
     // @NoDuplicateMembers is only available when using these sort orders: @Date, @WhenPublishedLatestFirst,
@@ -136,11 +136,11 @@ public class ListsRequest {
         this.member = member;
     }
 
-    public MemberRelationship getMemberRelationship() {
+    public ListMemberRelationship getMemberRelationship() {
         return memberRelationship;
     }
 
-    public void setMemberRelationship(MemberRelationship memberRelationship) {
+    public void setMemberRelationship(ListMemberRelationship memberRelationship) {
         this.memberRelationship = memberRelationship;
     }
 
@@ -152,11 +152,11 @@ public class ListsRequest {
         this.includeFriends = includeFriends;
     }
 
-    public Location getWhere() {
+    public Accessibility getWhere() {
         return where;
     }
 
-    public void setWhere(Location where) {
+    public void setWhere(Accessibility where) {
         this.where = where;
     }
 
@@ -169,7 +169,6 @@ public class ListsRequest {
     }
 
     public String[] getParameters() {
-        // TODO getParameters()
         HashSet<String> parameters = new HashSet<>();
 
         if (perPage != 0)
