@@ -1,5 +1,6 @@
 package List.ID;
 
+import Authentication.Auth;
 import Member.MemberSummary;
 import List.ListEntrySummary;
 import LogEntry.Sharable;
@@ -209,5 +210,20 @@ public class List {
 
     public String getDescription() {
         return description;
+    }
+
+    public static List getList(String listName) {
+
+        String json;
+        try {
+            String listId = Search.Search.getList(listName).getId();
+            json = Auth.request("/list/" + listId, null, "GET", null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return new List(json);
+
     }
 }
