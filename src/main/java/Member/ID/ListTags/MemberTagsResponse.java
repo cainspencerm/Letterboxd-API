@@ -24,4 +24,8 @@ public class MemberTagsResponse {
             items = null;
         }
     }
+
+    public MemberTag[] getItems() {
+        return items;
+    }
 }
